@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{%block content %}
+
+<div class="row">
+    <div class="col-md-4">
+
+        <div class="card">
+            <h5 class="card-header">Tambah Data Penerbit</h5>
+            <div class="card-body">
+                <form action="/tambah-penerbit/" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+    
+                    <tombol class="float-md-right">
+                        <a href="/penerbit/" class="btn btn-success">View Data</a>
+                        <button class="btn btn-primary">Tambah Data</button>
+                    </tombol>
+                </form>
+            </div>
+          </div>
+
+    </div>
+    <div class="col-md-4">
+
+        <div class="card">
+            <h5 class="card-header">Lorem, ipsum dolor.</h5>
+            <div class="card-body">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur, cum! Labore reprehenderit recusandae dolor, dolores maiores vitae adipisci amet alias quasi consequuntur nemo ut? Repudiandae, non et earum aut illum repellendus itaque veniam, sit magnam recusandae accusantium minus porro aliquid esse dolores quaerat at quisquam eveniet? Consequuntur explicabo tenetur aliquid, deserunt libero corporis! Aut nihil at, rerum obcaecati natus dolores autem repellendus tenetur voluptatem veniam ducimus. Minus velit accusantium voluptas mollitia aliquid quis sit tempora eum, odio fugiat dolor delectus, ut vel, tempore quaerat! Sit modi laborum incidunt ratione cumque, odit voluptas rem inventore labore praesentium fuga eligendi! Perferendis, nesciunt!
+            </div>
+          </div>
+
+    </div>
+</div>
+
+{% endblock %}

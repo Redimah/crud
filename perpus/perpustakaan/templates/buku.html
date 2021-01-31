@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+{%block content %}
+<div>
+    <div>
+        <a href="/tambah-buku/" class="btn btn-primary btn-md"><i class="fas fa-plus-square"></i> Tambah Data</a>
+    </div><br>
+    <!-- Table -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th> JUDUL </th>
+                <th> KATEGORI </th>
+                <th> PENGARANG </th>
+                <th> PENERBIT </th>
+                <th> TANGGAL </th>
+                <th> ISBN </th>
+                <th> ACTION </th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for Buku in books%}
+            <tr>
+                <td>{{ Buku.judul }}</td>
+                <td>{{ Buku.kategori_id }}</td>
+                <td>{{ Buku.pengarang_id }}</td>
+                <td>{{ Buku.penerbit_id }}</td>
+                <td>{{ Buku.Tahun }}</td>
+                <td>{{ Buku.ISBN }}</td>
+                <td>
+                    <a href="{% url 'ubah-buku/' Buku.id %}" class="btn btn-outline-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="EDIT">
+                        <i class="fas fa-edit"></i>
+                    </a> |
+                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapus-{{ Buku.id }}">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+            <!-- Modal -->
+            <div class="modal fade" id="hapus-{{ Buku.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Apakah anda yakin menghapus <strong> {{ Buku.judul | upper }} </strong>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{% url 'hapus-buku/' Buku.id %}" class="btn btn-danger">Delete</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

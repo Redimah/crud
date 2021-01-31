@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+{%block content %}
+
+<div>
+    <div>
+        <a href="/tambah-anggota/" class="btn btn-primary md"><i class="fas fa-plus-square"></i> Tambah Data</a>
+    </div><br>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th> NAMA </th>
+                <th> STATUS </th>
+                <th> ALAMAT </th>
+                <th> TELP </th>
+                <th> ACTION </th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for anggota in member%}
+            <tr>
+                <td>{{ anggota.nama }}</td>
+                <td>{{ anggota.status_id }}</td>
+                <td>{{ anggota.alamat }}</td>
+                <td>{{ anggota.telp }}</td>
+                <td>
+                    <a href="{% url 'ubah-anggota/' anggota.id %}" class="btn btn-outline-primary btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapus-{{ anggota.id }}">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </button>
+                </td>
+            </tr>
+
+            <!-- Modal -->
+            <div class="modal fade" id="hapus-{{ anggota.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Apakah anda yakin menghapus <strong> {{ anggota.nama | upper }} </strong>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{% url 'hapus-anggota/' anggota.id %}" class="btn btn-danger">Delete</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+                
+{% endblock %}

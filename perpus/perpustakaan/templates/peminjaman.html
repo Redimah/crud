@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{%block content %}
+
+<div class="container-fluid px-3">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <h5 class="card-header">Tambah Data Peminjaman</h5>
+                <div class="card-body">
+                    <form action="/pinjam/" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+        
+                        <div class="float-md-right">
+                            <a href="/laporan/" class="btn btn-success">Laporan</a>
+                            <button class="btn btn-primary">Tambah Data</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center">Dunia Berkata</h4>
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>Jika saya menunggu orang lain untuk membuat alat-alat yang saya butuhkan, saya tidak akan pernah membuat apa pun.</p><br>
+                        <footer class="blockquote-footer">Isaac Newton -
+                            <cite title="Source Title">Penemu teori gravitasi</cite>
+                        </footer>
+                      </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</form>
+
+{% endblock %}

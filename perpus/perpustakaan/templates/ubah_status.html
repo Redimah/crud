@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{%block content %}
+
+<div class="row">
+    <div class="col-md-4 p-1">
+        <div class="card">
+            <h5 class="card-header">Ubah Data Status</h5>
+            <div class="card-body">
+                <form action="{% url 'ubah-status/' statuss.id %}" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+    
+                    <tombol class="float-md-right">
+                        <a href="/status/" class="btn btn-success btn-md">View Data</a>
+                        <button class="btn btn-primary btn-md">Update Data</button>
+                    </tombol>
+                </form>
+            </div>
+        </div>
+    </div> 
+    <div class="col-md-8 p-1">
+        <div class="card">
+            <div class="card-header">
+              <h5>Dunia Berkata</h5>
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>Gantungkan cita-cita mu setinggi langit! Bermimpilah setinggi langit.
+                    Jika engkau jatuh, engkau akan jatuh di antara bintang-bintang.</p><br>
+                <footer class="blockquote-footer">Ir. Soekarno -
+                    <cite title="Source Title">Presiden pertama Republik Indonesia</cite>
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+    </div>
+</div>
+
+{% endblock %}

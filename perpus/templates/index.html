@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ judul }} PERPUSTAKAAN</title>
+    {% include 'snippets/style.html'%}
+
+</head>
+<body class="bg-light">
+    {% include 'snippets/nav.html'%}<br>
+    <div class="container-fluid px-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% include 'snippets/header.html'%}
+                        {% block content %}
+                        {%endblock%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'snippets/scripts.html'%}
+</body>
+</html>

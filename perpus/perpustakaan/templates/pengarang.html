@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{%block content %}
+
+<div>
+    <tombol>
+        <a href="/tambah-pengarang/" class="btn btn-primary btn-md"><i class="fas fa-plus-square"></i> Tambah Data</a>
+    </tombol><br><br>
+    <!-- Table -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th> NAMA </th>
+                <th> ALAMAT </th>
+                <th> TELP </th>
+                <th> ACTION </th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for pengarang in cipta %}
+            <tr>
+                <td>{{ pengarang.nama }}</td>
+                <td>{{ pengarang.alamat }}</td>
+                <td>{{ pengarang.telp }}</td>
+                <td>
+                    <a href="{% url 'ubah-pengarang/' pengarang.id %}" class="btn btn-outline-primary btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                    <a href="#" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

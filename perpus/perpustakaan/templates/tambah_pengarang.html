@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{%block content %}
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="card">
+            <h5 class="card-header">Tambah Data Pengarang</h5>
+            <div class="card-body">
+                <form action="/tambah-pengarang/" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+    
+                    <tombol class="float-md-right">
+                        <a href="/pengarang/" class="btn btn-success">View Data</a>
+                        <button class="btn btn-primary">Tambah Data</button>
+                    </tombol>
+                </form>
+            </div>
+          </div>
+
+    </div>
+</div>
+
+{% endblock %}
