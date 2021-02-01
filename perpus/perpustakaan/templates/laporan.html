@@ -1,39 +1,37 @@
 {% extends 'index.html' %}
 {%block content %}
-    <h1 class="text-center">Perpustakaan Online</h1><br>
-    <div class="container-fluid px-5">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- Table -->
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr class="text-center">
-                                    <th> KODE </th>
-                                    <th> NAMA </th>
-                                    <th> BUKU </th>
-                                    <th> PINJAM </th>
-                                    <th> KEMBALI </th>
-                                    <th> JUMLAH </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for Peminjaman in borr %}
-                                <tr>
-                                    <td>{{ Peminjaman.kodepeminjaman }}</td>
-                                    <td>{{ Peminjaman.anggota_id }}</td>
-                                    <td>{{ Peminjaman.buku_id }}</td>
-                                    <td>{{ Peminjaman.tglpinjam }}</td>
-                                    <td>{{ Peminjaman.tglkembali }}</td>
-                                    <td>{{ Peminjaman.jumlahpinjaman }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <a href="/laporan-xls/" class="btn btn-success btn-md"><i class="fas fa-file-export"></i> Export Excel</a>
+        </div><br>
+        <!-- Table -->
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="text-center">
+                    <th> KODE </th>
+                    <th> NAMA </th>
+                    <th> BUKU </th>
+                    <th> PINJAM </th>
+                    <th> KEMBALI </th>
+                    <th> JUMLAH </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Peminjaman in borr %}
+                <tr>
+                    <td>{{ Peminjaman.kodepeminjaman }}</td>
+                    <td>{{ Peminjaman.anggota_id }}</td>
+                    <td>{{ Peminjaman.buku_id }}</td>
+                    <td>{{ Peminjaman.tglpinjam }}</td>
+                    <td>{{ Peminjaman.tglkembali }}</td>
+                    <td>{{ Peminjaman.jumlahpinjaman }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+</div>
+           
 {% endblock %}
